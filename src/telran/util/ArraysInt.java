@@ -12,16 +12,20 @@ public class ArraysInt {
 
     public static int[] insertNumber(int[] array, int index, int number) {
         int[] newArray = new int[array.length + 1];
-        newArray[index] = number;
-        System.arraycopy(array, 0, newArray, 0, index);
-        System.arraycopy(array, index, newArray, index + 1, array.length - index);
+        if (index > -1 && index < array.length + 1){
+            newArray[index] = number;
+            System.arraycopy(array, 0, newArray, 0, index);
+            System.arraycopy(array, index, newArray, index + 1, array.length - index);
+        }
         return newArray;
     }
 
     public static int[] removeNumber(int[] array, int index) {
         int[] newArray = new int[array.length-1];
-        System.arraycopy(array, 0, newArray, 0, index);
-        System.arraycopy(array, index + 1, newArray, index, array.length - 1 - index);
+        if (index > -1 && index < array.length + 1) {
+            System.arraycopy(array, 0, newArray, 0, index);
+            System.arraycopy(array, index + 1, newArray, index, array.length - 1 - index);
+        }
         return newArray;
     }
 
